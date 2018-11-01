@@ -15,6 +15,4 @@ public class SampleController {
         return "hello";*/
         throw new SampleException();
     }
-
-
 }
