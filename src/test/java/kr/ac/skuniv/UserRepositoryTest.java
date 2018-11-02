@@ -1,7 +1,6 @@
 package kr.ac.skuniv;
 
-import kr.ac.skuniv.user.User;
-import kr.ac.skuniv.user.UserRepository;
+import kr.ac.skuniv.repository.UserRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

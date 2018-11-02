@@ -1,10 +1,8 @@
-package kr.ac.skuniv;
+package kr.ac.skuniv.controller;
 
-import kr.ac.skuniv.user.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import kr.ac.skuniv.exception.SampleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
