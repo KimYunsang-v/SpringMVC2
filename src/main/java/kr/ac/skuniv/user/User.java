@@ -1,28 +1,37 @@
 package kr.ac.skuniv.user;
 
-import org.springframework.stereotype.Component;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Component
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+@Getter
 public class User {
+    @Id
+    @GeneratedValue
+    private String userId;
 
-    static String userId;
-    static String pw;
-    static String name;
-    static String email;
+    @Column(length = 50, nullable = false)
+    private String pw;
 
-    public static void setUserId(String userId) {
-        User.userId = userId;
-    }
+    @Column(nullable = false)
+    private String name;
 
-    public static void setName(String name) {
-        User.name = name;
-    }
+    @Column
+    private String email;
 
-    public static void setEmail(String email) {
-        User.email = email;
-    }
-
-    public static void setPw(String pw) {
-        User.pw = pw;
+    @Builder
+    public User(String userId, String pw, String name, String email) {
+        this.userId = userId;
+        this.pw = pw;
+        this.name = name;
+        this.email = email;
     }
 }

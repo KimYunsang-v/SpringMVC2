@@ -24,6 +24,4 @@ public class SampleController {
 
         return "login";
     }
-
-
 }

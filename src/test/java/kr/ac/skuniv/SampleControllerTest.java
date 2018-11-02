@@ -26,21 +26,7 @@ public class SampleControllerTest {
    @Autowired
     MockMvc mockMvc;
 
-   /*
-    @Test
-    public void hello() throws Exception {
-        // 요청 "/hello"
-        // 응답
-        // - 모델 name : yunsang
-        // - 뷰 이름 : hello
 
-        mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(view().name("hello"))
-                .andExpect(model().attribute("name", is("yunsang")))
-                .andExpect(content().string(containsString("yunsang")));
-    }*/
 
     @Autowired
     WebClient webClient;
@@ -50,5 +36,10 @@ public class SampleControllerTest {
         HtmlPage page = webClient.getPage("/hello");
         HtmlHeading1 h1 = page.getFirstByXPath("//h1");
         assertThat(h1.getTextContent()).isEqualToIgnoringCase("yunsang");
+    }
+
+    @Test
+    public void create(){
+
     }
 }
