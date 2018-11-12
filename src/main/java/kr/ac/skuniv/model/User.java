@@ -1,61 +1,56 @@
 package kr.ac.skuniv.model;
 
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
-@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class User {
     @Id
-    @GeneratedValue
-    private String userId;
+    private Long id;
 
-    @Column(length = 50, nullable = false)
-    private String pw;
+    private String username;
 
-    @Column(nullable = false)
-    private String name;
+    private String password;
 
-    @Column
-    private String email;
-
-    public User(String userId, String pw, String name, String email) {
-        this.userId = userId;
-        this.pw = pw;
-        this.name = name;
-        this.email = email;
+    public Long getId() {
+        return id;
     }
 
-    public String getUserId() {
-        return userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public String getUsername() {
+        return username;
     }
 
-    public String getPw() {
-        return pw;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setPw(String pw) {
-        this.pw = pw;
+    public String getPassword() {
+        return password;
     }
 
-    public String getName() {
-        return name;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password);
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password);
     }
 }

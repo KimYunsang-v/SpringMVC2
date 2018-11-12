@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+
     @GetMapping("/users")
     public List<User> getAllNotes() {
         return userRepository.findAll();
@@ -39,8 +40,7 @@ public class UserController {
         User user = userRepository.findById(userId)
                 .orElseThrow(()->new ResouceNotFoundException("User", "userId", userId));
 
-        user.setName(userDetails.getName());
-        user.setEmail(userDetails.getEmail());
+        user.setUsername(userDetails.getUsername());
 
         User updateUser = userRepository.save(user);
 
@@ -56,5 +56,4 @@ public class UserController {
 
         return ResponseEntity.ok().build();
     }
-
 }
