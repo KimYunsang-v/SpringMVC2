@@ -18,7 +18,6 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-
     @GetMapping("/users")
     public List<User> getAllNotes() {
         return userRepository.findAll();
